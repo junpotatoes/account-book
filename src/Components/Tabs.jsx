@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "../css/Tabs.css";
-import Modal from "./Modal";
+// import Modal from "./Modal";
+import Calendar from './Calendar';
+import CalendarSub from "./CalendarSub";
 
 function Tabs() {
   const [toggleState, setToggleState] = useState(1);
@@ -40,7 +42,15 @@ function Tabs() {
               toggleState === 1 ? "content  active-content" : "content"
             }
           >
-            <Modal />
+            {/* <Modal /> */}
+            <div className="test">
+              <div>
+                <Calendar/>
+              </div>
+              <div>
+                <CalendarSub/>
+              </div>
+            </div>
           </div>
 
           <div

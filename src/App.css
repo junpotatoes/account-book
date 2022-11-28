@@ -1,0 +1,33 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+/* ul,ol 블릿없앰 */
+ul,
+ol,
+li {
+  list-style: none;
+}
+/* a - 글자색, 밑줄없앰 */
+a {
+  color: #000;
+  text-decoration: none;
+}
+/* 이미지관련 */
+img {
+  border: none;
+  vertical-align: top;
+}

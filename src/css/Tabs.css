@@ -1,22 +1,59 @@
-.layOut{
-  width: 1200px;
+/* 탭 컴포넌트 전체 화면 레이아웃 */
+.layout{
+  width: 1300px;
+  height: 100vh;
   background-color: gray;
   margin: 0 auto;
-  height: 100vh;
+  text-align: center;
 }
 
-
-.tap__List{
+/* 제목 레이아웃 */
+.tap__title{
+  height: 7rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: blue;
-  text-align: center;
   font-size: 2rem;
 }
-.tap__List__Docs{
+
+/* 제목라인의 내용부분 */
+.tap__list__docs{
   flex: 1;
-  border: 1px solid black;
   padding: 1rem;
   cursor: pointer;
 }
+
+/*main부분 제목부분을 제외한 화면채우기*/
+.tap_content{
+  display: flex;
+  height: calc(100vh - 7rem);
+}
+
+/* 화면숨김 */
+.Dn{
+  display: none;
+}
+
+.flex__row{
+  background-color: rgb(133, 50, 50);
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.flex__column{
+  background-color: rgb(255, 255, 255);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex__3{
+  flex:3;
+  outline: 1px solid black;
+}
+.flex__1{
+  flex:1;
+  outline: 1px solid black;
+}
+

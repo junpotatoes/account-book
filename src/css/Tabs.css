@@ -35,14 +35,12 @@
 }
 
 .flex__row{
-  background-color: rgb(133, 50, 50);
   flex: 1;
   display: flex;
   flex-direction: row;
 }
 
 .flex__column{
-  background-color: rgb(255, 255, 255);
   flex: 1;
   display: flex;
   flex-direction: column;

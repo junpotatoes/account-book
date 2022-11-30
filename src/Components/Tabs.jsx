@@ -3,6 +3,8 @@ import "../css/Tabs.css";
 // import Modal from "./Modal";
 import Calendar from "./Calendar";
 import CalendarSub from "./CalendarSub";
+import Account from "./Account";
+import Management from "./Management";
 import Settings from "./Settings";
 
 function Tabs() {
@@ -32,8 +34,8 @@ function Tabs() {
               <div className="flex__1">{/*컴포넌트2*/}</div>
           </div>
           <div className={`${currenTab !== 2 ? "Dn" : "flex__column"}`}>
-              <div className="flex__1">{/*컴포넌트1*/}</div>
-              <div className="flex__1">{/*컴포넌트2*/}</div>
+              <div className="flex__1"><Account/></div>
+              <div className="flex__1"><Management/></div>
           </div>
       </main>
     </div>

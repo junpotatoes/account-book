@@ -22,11 +22,12 @@ function CreateBox() {
               </div>
               <div className="Box__Content">
                 <span>금액</span>
-                <div className="underline"></div>
+                <input type={"text"} className="underline"></input>
+                <span>원</span>
               </div>
               <div className="Box__Content">
                 <span>내용</span>
-                <div className="underline"></div>
+                <input type={"text"} className="underline"></input>
               </div>
             </div>
           </div>

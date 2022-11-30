@@ -51,9 +51,9 @@ body.active-modal {
 }
 
 .scroll__Box {
-  width: 470px;
+  width: 490px;
   height: 400px;
-  outline: 1px solid black;
+
   overflow: auto;
 }
 
@@ -78,14 +78,16 @@ body.active-modal {
 .Box__Content {
   width: 350px;
   height: 35px;
-  display: flex;
+  /* display: flex; */
 }
 
 .underline {
-  width: 260px;
-  height: 35px;
+  width: 200px;
+  height: 25px;
   margin-left: 20px;
+  border: none;
   border-bottom: 1px solid black;
+  background-color: #f1f1f1;
 }
 
 .Dropdown {
@@ -108,7 +110,7 @@ body.active-modal {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 210px;
+  margin-left: 220px;
   margin-top: 20px;
 }
 

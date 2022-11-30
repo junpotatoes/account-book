@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import Datepicker from "./Datepicker";
-import CreateBox from "./CreateBox";
 
-import "../css/Modal.css";
-
-export default function Modal() {
+export default function MinusModal() {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -20,7 +17,7 @@ export default function Modal() {
   return (
     <>
       <button onClick={toggleModal} className="btn-modal">
-        수입
+        지출
       </button>
 
       {modal && (
@@ -32,9 +29,7 @@ export default function Modal() {
                 <Datepicker />
               </div>
             </div>
-            <div className="scroll__Box">
-              <CreateBox />
-            </div>
+            <div className="scroll__Box"></div>
             <div className="under__Box">
               <div className="option">
                 <button className="save__Modal">저장</button>

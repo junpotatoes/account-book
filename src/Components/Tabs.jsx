@@ -2,9 +2,27 @@ import { useState } from "react";
 import "../css/Tabs.css";
 import PlusModal from "./PlusModal";
 import MinusModal from "./MinusModal";
+import BarChart from "./BarChart";
+import { Data } from "./Data";
 
 function Tabs() {
   const [toggleState, setToggleState] = useState(1);
+
+  const [userData, SetUserData] = useState({
+    labels: Data.map((data) => data.month),
+    datasets: [
+      {
+        label: ["Plus"],
+        data: Data.map((data) => data.Plus),
+        borderWidth: 2,
+      },
+      {
+        label: ["Minus"],
+        data: Data.map((data) => data.Minus),
+        borderWidth: 2,
+      },
+    ],
+  });
 
   const toggleTab = (index) => {
     setToggleState(index);
@@ -49,7 +67,9 @@ function Tabs() {
             className={
               toggleState === 2 ? "content  active-content" : "content"
             }
-          ></div>
+          >
+            <BarChart chartData={userData} />
+          </div>
 
           <div
             className={

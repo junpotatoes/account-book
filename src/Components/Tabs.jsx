@@ -4,22 +4,45 @@ import PlusModal from "./PlusModal";
 import MinusModal from "./MinusModal";
 import BarChart from "./BarChart";
 import { Data } from "./Data";
+import PieChart from "./PieChart";
+import { Data2 } from "./Data2";
 
 function Tabs() {
   const [toggleState, setToggleState] = useState(1);
+  // 파이형 차트상태
+  const [userData2, SetUserData2] = useState({
+    labels: Data2.map((data) => data.title),
+    datasets: [
+      {
+        label: ["income"],
+        data: Data2.map((data) => data.income),
 
+        backgroundColor: ["#B4B2FF", "red", "blue", "black", "gray", "orange"],
+      },
+      // {
+      //   label: ["Minus"],
+      //   data: Data.map((data) => data.Minus),
+
+      //   backgroundColor: "#FAB5B5",
+      // },
+    ],
+  });
+
+  // 막대바 차트상태
   const [userData, SetUserData] = useState({
     labels: Data.map((data) => data.month),
     datasets: [
       {
         label: ["Plus"],
         data: Data.map((data) => data.Plus),
-        borderWidth: 2,
+
+        backgroundColor: "#B4B2FF",
       },
       {
         label: ["Minus"],
         data: Data.map((data) => data.Minus),
-        borderWidth: 2,
+
+        backgroundColor: "#FAB5B5",
       },
     ],
   });
@@ -68,7 +91,10 @@ function Tabs() {
               toggleState === 2 ? "content  active-content" : "content"
             }
           >
-            <BarChart chartData={userData} />
+            <div className="barchart__container">
+              <PieChart chartData2={userData2} />
+              <BarChart chartData={userData} />
+            </div>
           </div>
 
           <div

@@ -1,15 +1,23 @@
 import { useState } from "react";
 import "../css/Tabs.css";
+// import Modal from "./Modal
+import CalendarSub from "./CalendarSub";
+import Account from "./Account";
+import Management from "./Management";
+import { Calender } from "./Calendar";
 import PlusModal from "./PlusModal";
 import MinusModal from "./MinusModal";
-import BarChart from "./BarChart";
 import { Data } from "./Data";
-import PieChart from "./PieChart";
 import { Data2 } from "./Data2";
 import { Data3 } from "./Data3";
+import BarChart from "./BarChart";
+import PieChart from "./PieChart";
 import PieChart2 from "./PieChart2";
 
 function Tabs() {
+  const tapPage = ["캘린더", "월별 통계", "설정"];
+  const [currenTab, SetCurrenTab] = useState(0);
+
   const [toggleState, setToggleState] = useState(1);
   // 수입 파이형 차트상태
   const [userData2, SetUserData2] = useState({
@@ -55,65 +63,48 @@ function Tabs() {
     ],
   });
 
-  const toggleTab = (index) => {
-    setToggleState(index);
-  };
-
   return (
-    <div className="big__Container">
-      <div className="left__Block"></div>
-      <div className="container">
-        <div className="bloc-tabs">
-          <button
-            className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
-            onClick={() => toggleTab(1)}
+    <div className="layout">
+      <ul className="tap__title">
+        {tapPage.map((el, idx) => (
+          <li
+            key={idx}
+            className="tap__list__docs"
+            onClick={() => SetCurrenTab(idx)}
           >
-            캘린더
-          </button>
-          <button
-            className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
-            onClick={() => toggleTab(2)}
-          >
-            월별통계
-          </button>
-          <button
-            className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
-            onClick={() => toggleTab(3)}
-          >
-            설정
-          </button>
-        </div>
-
-        <div className="content-tabs">
-          <div
-            className={
-              toggleState === 1 ? "content  active-content" : "content"
-            }
-          >
+            {el}
+          </li>
+        ))}
+      </ul>
+      <main className="tap_content">
+        <div className={`${currenTab !== 0 ? "Dn" : "flex__row"}`}>
+          <div className="flex__3">
             <PlusModal />
             <MinusModal />
+            <Calender></Calender>
           </div>
-
-          <div
-            className={
-              toggleState === 2 ? "content  active-content" : "content"
-            }
-          >
-            <div className="barchart__container">
-              <PieChart chartData2={userData2} />
-              <PieChart2 chartData3={userData3} />
-            </div>
+          <div className="flex__1">
+            <CalendarSub />
+          </div>
+        </div>
+        <div className={`${currenTab !== 1 ? "Dn" : "flex__column"}`}>
+          <div className="flex__1">
+            <PieChart chartData2={userData2} />
+            <PieChart2 chartData3={userData3} />
+          </div>
+          <div className="flex__1">
             <BarChart chartData={userData} />
           </div>
-
-          <div
-            className={
-              toggleState === 3 ? "content  active-content" : "content"
-            }
-          ></div>
         </div>
-      </div>
-      <div className="right__Block"></div>
+        <div className={`${currenTab !== 2 ? "Dn" : "flex__column"}`}>
+          <div className="flex__1">
+            <Account />
+          </div>
+          <div className="flex__1">
+            <Management />
+          </div>
+        </div>
+      </main>
     </div>
   );
 }

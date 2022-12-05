@@ -1,0 +1,88 @@
+/* 캘린더 모든 최상위부모 */
+.all{
+    height: 100%;
+    background-color: antiquewhite;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 날짜와 버튼 최상위부모*/
+.a{
+    background-color: red;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+/* 날짜와 버튼 부모*/
+.a-1{
+    background-color: rgb(180, 114, 180);
+    display: flex;
+}
+
+/* 버튼 & 날짜 공통부모 */
+.a-2{
+    margin: 0 .5rem; 
+    background-color: purple;
+    display: flex;
+    align-items: center;
+    
+}
+
+/* 싸고 있는부모밑에 모든자식 */
+.a-2 > *{
+    margin: 0 .5rem; 
+    background-color: darkblue;
+
+}
+
+/* 요일 최상위부모 */
+.b{
+    background-color: blue;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    padding: 1rem;
+}
+
+/* 각요일들 */
+.b-1{
+    background: yellow;
+    color: black;
+}
+
+
+/* 한달을 다감싸는 최상위부모 */
+.c{
+    flex: 1;
+    background-color: green;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+/*  1주일을 나타내는 부모 가로 */
+.c-1{
+    flex: 1;
+    background-color: brown;
+    outline: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+}
+
+/*  각 날짜들*/
+.c-2{
+    padding: .5rem;
+    text-align: left;
+    flex: 1;
+    background-color: rgb(174, 118, 118);
+    border: 1px solid black;
+    color: black;
+}
+
+
+.test{
+    background-color: black;
+}

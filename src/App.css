@@ -2,6 +2,11 @@ html {
   font-size: 10px;
 }
 
+html, body{
+  width: 100vw;
+  height: 100vh;
+}
+
 html,
 body,
 h1,
@@ -34,4 +39,9 @@ a {
 img {
   border: none;
   vertical-align: top;
+}
+
+.app{
+  height: 100%;
+  background-color: #000;
 }

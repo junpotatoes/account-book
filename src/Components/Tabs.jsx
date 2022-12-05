@@ -1,12 +1,12 @@
 import { useState } from "react";
 import "../css/Tabs.css";
 // import Modal from "./Modal";
-import Calendar from "./Calendar";
 import CalendarSub from "./CalendarSub";
 import Account from "./Account";
 import Management from "./Management";
 import Settings from "./Settings";
-import {Calender} from "./Test";
+import {Calender} from "./Calendar";
+
 
 
 function Tabs() {
@@ -28,10 +28,7 @@ function Tabs() {
       </ul>
       <main className="tap_content">
           <div className={`${currenTab !== 0 ? "Dn" : "flex__row"}`}>
-              <div className="flex__3">
-                {/* <Calendar/> */}
-                <Calender></Calender>
-                </div>
+              <div className="flex__3"><Calender></Calender></div>
               <div className="flex__1"><CalendarSub/></div>
           </div>
           <div className={`${currenTab !== 1 ? "Dn" : "flex__column"}`}>

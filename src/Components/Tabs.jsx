@@ -1,62 +1,45 @@
 import { useState } from "react";
 import "../css/Tabs.css";
-import Modal from "./Modal";
+// import Modal from "./Modal";
+import CalendarSub from "./CalendarSub";
+import Account from "./Account";
+import Management from "./Management";
+import Settings from "./Settings";
+import {Calender} from "./Calendar";
+
+
 
 function Tabs() {
-  const [toggleState, setToggleState] = useState(1);
-
-  const toggleTab = (index) => {
-    setToggleState(index);
-  };
+  const tapPage = ["캘린더", "월별 통계", "설정"];
+  const [currenTab, SetCurrenTab] = useState(0);
 
   return (
-    <div className="big__Container">
-      <div className="left__Block"></div>
-      <div className="container">
-        <div className="bloc-tabs">
-          <button
-            className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
-            onClick={() => toggleTab(1)}
+    <div className="layout">
+      <ul className="tap__title">
+        {tapPage.map((el, idx) => (
+          <li
+            key={idx}
+            className="tap__list__docs"
+            onClick={() => SetCurrenTab(idx)}
           >
-            캘린더
-          </button>
-          <button
-            className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
-            onClick={() => toggleTab(2)}
-          >
-            월별통계
-          </button>
-          <button
-            className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
-            onClick={() => toggleTab(3)}
-          >
-            설정
-          </button>
-        </div>
-
-        <div className="content-tabs">
-          <div
-            className={
-              toggleState === 1 ? "content  active-content" : "content"
-            }
-          >
-            <Modal />
+            {el}
+          </li>
+        ))}
+      </ul>
+      <main className="tap_content">
+          <div className={`${currenTab !== 0 ? "Dn" : "flex__row"}`}>
+              <div className="flex__3"><Calender></Calender></div>
+              <div className="flex__1"><CalendarSub/></div>
           </div>
-
-          <div
-            className={
-              toggleState === 2 ? "content  active-content" : "content"
-            }
-          ></div>
-
-          <div
-            className={
-              toggleState === 3 ? "content  active-content" : "content"
-            }
-          ></div>
-        </div>
-      </div>
-      <div className="right__Block"></div>
+          <div className={`${currenTab !== 1 ? "Dn" : "flex__column"}`}>
+              <div className="flex__1">{/*컴포넌트1*/}</div>
+              <div className="flex__1">{/*컴포넌트2*/}</div>
+          </div>
+          <div className={`${currenTab !== 2 ? "Dn" : "flex__column"}`}>
+              <div className="flex__1"><Account/></div>
+              <div className="flex__1"><Management/></div>
+          </div>
+      </main>
     </div>
   );
 }

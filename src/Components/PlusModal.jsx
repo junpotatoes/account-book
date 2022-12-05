@@ -5,12 +5,13 @@ import IncomeDropdown from "./IncomeDropdown";
 
 import "../css/Modal.css";
 
-export default function PlusModal() {
+function PlusModal() {
   const [val, setVal] = useState([]);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [content, setContent] = useState("");
   const [modal, setModal] = useState(false);
+  // const [date, setDate] = use
 
   const toggleModal = () => {
     setModal(!modal);
@@ -119,3 +120,4 @@ export default function PlusModal() {
     </>
   );
 }
+export default PlusModal;

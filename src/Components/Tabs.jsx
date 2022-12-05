@@ -6,10 +6,12 @@ import BarChart from "./BarChart";
 import { Data } from "./Data";
 import PieChart from "./PieChart";
 import { Data2 } from "./Data2";
+import { Data3 } from "./Data3";
+import PieChart2 from "./PieChart2";
 
 function Tabs() {
   const [toggleState, setToggleState] = useState(1);
-  // 파이형 차트상태
+  // 수입 파이형 차트상태
   const [userData2, SetUserData2] = useState({
     labels: Data2.map((data) => data.title),
     datasets: [
@@ -19,12 +21,18 @@ function Tabs() {
 
         backgroundColor: ["#B4B2FF", "red", "blue", "black", "gray", "orange"],
       },
-      // {
-      //   label: ["Minus"],
-      //   data: Data.map((data) => data.Minus),
+    ],
+  });
+  // 지출 파이형 차트상태
+  const [userData3, SetUserData3] = useState({
+    labels: Data3.map((data) => data.title),
+    datasets: [
+      {
+        label: ["expense"],
+        data: Data3.map((data) => data.expense),
 
-      //   backgroundColor: "#FAB5B5",
-      // },
+        backgroundColor: ["#B4B2FF", "red", "blue", "black", "gray", "orange"],
+      },
     ],
   });
 
@@ -93,8 +101,9 @@ function Tabs() {
           >
             <div className="barchart__container">
               <PieChart chartData2={userData2} />
-              <BarChart chartData={userData} />
+              <PieChart2 chartData3={userData3} />
             </div>
+            <BarChart chartData={userData} />
           </div>
 
           <div

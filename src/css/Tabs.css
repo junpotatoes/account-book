@@ -88,3 +88,12 @@ button {
   display: flex;
   /* z-index: 1; */
 }
+
+.barchart__container {
+  width: 1000px;
+  height: 500px;
+  display: flex;
+  justify-content: space-around;
+  /* background-color: black; */
+  margin: 0 auto;
+}

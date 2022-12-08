@@ -3,9 +3,6 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import { format, addMonths, subMonths } from "date-fns";
-// format : 날짜데이터를 출력할형식을 지정
-// addMonths : 현재의 월을 증가 지정
-// subMonths : 현재의 월을 감소 지정
 import { startOfMonth, endOfMonth, startOfWeek, endOfWeek } from "date-fns";
 //  공식문서 요일 기준 기본값 -> [일, 월, 화, 수, 목, 금, 토]
 // startOfMonth : 주어진 날짜의 월에서 시작하는 day를 반환

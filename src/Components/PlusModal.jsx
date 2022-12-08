@@ -11,8 +11,9 @@ function PlusModal() {
   const [price, setPrice] = useState("");
   const [content, setContent] = useState("");
   const [modal, setModal] = useState(false);
-  // const [date, setDate] = use
-
+  const [date, setDate] = useState("")
+  // console.log(date)
+  console.log(title)
   const toggleModal = () => {
     setModal(!modal);
   };
@@ -63,18 +64,18 @@ function PlusModal() {
           <div className="modal-content">
             <div className="modal__Top__Box">
               <div className="datePicker">
-                <Datepicker />
+                <Datepicker setDate={setDate} />
               </div>
             </div>
             <div className="scroll__Box">
-              {val.map((data, i) => {
-                return (
+              {/* {val.map((data, i) => { */}
+                {/* return ( */}
                   <div className="modal__Content__Box">
                     <div className="Box__Wrapper">
                       <div className="Box__Content">
                         <span>분류</span>
                         <span className="Dropdown">
-                          <IncomeDropdown />
+                          <IncomeDropdown setTitle={setTitle}/>
                         </span>
                       </div>
                       <div className="Box__Content">
@@ -98,8 +99,8 @@ function PlusModal() {
                       </div>
                     </div>
                   </div>
-                );
-              })}
+                {/* ); */}
+              {/* })} */}
               <button className="plus" onClick={() => handleAdd()}>
                 +
               </button>

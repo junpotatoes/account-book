@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Datepicker from "./Datepicker";
-
 import ExpensesDropdown from "./ExpensesDropdown";
-
 import "../css/Modal.css";
+
 
 function MinusModal() {
   const [val, setVal] = useState([]);
@@ -11,7 +10,7 @@ function MinusModal() {
   const [price, setPrice] = useState("");
   const [content, setContent] = useState("");
   const [modal, setModal] = useState(false);
-  // const [date, setDate] = use
+  
 
   const toggleModal = () => {
     setModal(!modal);
@@ -51,6 +50,11 @@ function MinusModal() {
     console.log(content);
   };
 
+  
+
+  const [test, setTest] = useState("");
+  
+
   return (
     <>
       <button onClick={toggleModal} className="btn-modal">
@@ -63,12 +67,12 @@ function MinusModal() {
           <div className="modal-content">
             <div className="modal__Top__Box">
               <div className="datePicker">
-                <Datepicker />
+                <Datepicker/>
               </div>
             </div>
             <div className="scroll__Box">
-              {val.map((data, i) => {
-                return (
+              {/* {val.map((data, i) => {
+                return ( */}
                   <div className="modal__Content__Box">
                     <div className="Box__Wrapper">
                       <div className="Box__Content">
@@ -98,8 +102,8 @@ function MinusModal() {
                       </div>
                     </div>
                   </div>
-                );
-              })}
+                {/* );
+              })} */}
               <button className="plus" onClick={() => handleAdd()}>
                 +
               </button>

@@ -1,5 +1,5 @@
 /* 탭 컴포넌트 전체 화면 레이아웃 */
-.layout{
+.layout {
   width: 1300px;
   height: 100vh;
   background-color: gray;
@@ -8,7 +8,7 @@
 }
 
 /* 제목 레이아웃 */
-.tap__title{
+.tap__title {
   height: 7rem;
   display: flex;
   justify-content: center;
@@ -17,42 +17,47 @@
 }
 
 /* 제목라인의 내용부분 */
-.tap__list__docs{
+.tap__list__docs {
   flex: 1;
   padding: 1rem;
   cursor: pointer;
 }
 
 /*main부분 제목부분을 제외한 화면채우기*/
-.tap_content{
+.tap_content {
   display: flex;
   height: calc(100vh - 7rem);
 }
 
 /* 화면숨김 */
-.Dn{
+.Dn {
   display: none;
-  
 }
 
-.flex__row{
+.flex__row {
   flex: 1;
   display: flex;
   flex-direction: row;
 }
 
-.flex__column{
+.flex__column {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.flex__3{
-  flex:3;
+.flex__3 {
+  flex: 3;
   outline: 1px solid black;
 }
-.flex__1{
-  flex:1;
+.flex__1 {
+  flex: 1;
   outline: 1px solid black;
 }
 
+.chart {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+}

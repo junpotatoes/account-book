@@ -20,6 +20,8 @@ function Tabs() {
 
   const [toggleState, setToggleState] = useState(1);
   // 수입 파이형 차트상태
+
+  
   const [userData2, SetUserData2] = useState({
     labels: Data2.map((data) => data.title),
     datasets: [
@@ -79,8 +81,8 @@ function Tabs() {
       <main className="tap_content">
         <div className={`${currenTab !== 0 ? "Dn" : "flex__row"}`}>
           <div className="flex__3">
-            <PlusModal />
             <MinusModal />
+            <PlusModal />
             <Calender></Calender>
           </div>
           <div className="flex__1">
@@ -89,11 +91,15 @@ function Tabs() {
         </div>
         <div className={`${currenTab !== 1 ? "Dn" : "flex__column"}`}>
           <div className="flex__1">
-            <PieChart chartData2={userData2} />
-            <PieChart2 chartData3={userData3} />
+            <div className="chart">
+              <PieChart chartData2={userData2} />
+              <PieChart2 chartData3={userData3} />
+            </div>
           </div>
           <div className="flex__1">
-            <BarChart chartData={userData} />
+            <div className="chart">
+              <BarChart chartData={userData} />
+            </div>
           </div>
         </div>
         <div className={`${currenTab !== 2 ? "Dn" : "flex__column"}`}>

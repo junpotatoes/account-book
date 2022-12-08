@@ -59,19 +59,21 @@ body.active-modal {
 
 .modal__Content__Box {
   width: 450px;
-  height: 140px;
+  height: 360px;
   border: 1px solid black;
-  margin-top: 15px;
+  margin: 15px auto;
   border-radius: 5px;
+  text-align: left;
 }
 
 .Box__Wrapper {
-  width: 450px;
-  height: 140px;
+  /* width: 450px; */
+  /* height: 140px; */
   display: flex;
   flex-direction: column;
   line-height: 60px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
+  padding-left: 10px;
   font-size: 15px;
 }
 

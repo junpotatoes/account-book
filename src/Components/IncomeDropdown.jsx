@@ -1,15 +1,16 @@
 import Form from "react-bootstrap/Form";
 
-
-function SelectBasicExample({setTitle}) {
-
-  const date = (e)=>{
-    setTitle(e.target.value)
-    
-  }
+function SelectBasicExample({ setTitle }) {
+  const date = (e) => {
+    setTitle(e.target.value);
+  };
 
   return (
-    <Form.Select onChange={date} style={{ width: "75px" }} aria-label="Default select example">
+    <Form.Select
+      onChange={date}
+      style={{ width: "75px" }}
+      aria-label="Default select example"
+    >
       <option></option>
       <option value="월급">월급</option>
       <option value="부수입">부수입</option>

@@ -4,10 +4,8 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
-function Datepicker({setDate}) {
+function Datepicker({ setDate }) {
   const [value, setValue] = React.useState(null);
-  // let result  = `${value.$y + value.$M + value.$D}`
-  
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -15,10 +13,9 @@ function Datepicker({setDate}) {
         <DatePicker
           label="날짜를 선택해주세요"
           value={value}
-          onChange={(newvalue) => {
-            setValue(newvalue);
-            setDate(`${newvalue.$y}${newvalue.$M + 1}${newvalue.$D}`)
-          
+          onChange={(newValue) => {
+            setValue(newValue);
+            setDate(`${newValue.$y}${newValue.$M + 1}${newValue.$D}`);
           }}
           renderInput={(params) => <TextField {...params} />}
         />

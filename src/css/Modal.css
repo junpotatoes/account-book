@@ -59,7 +59,7 @@ body.active-modal {
 
 .modal__Content__Box {
   width: 450px;
-  height: 140px;
+  height: 360px;
   border: 1px solid black;
   margin: 15px auto;
   border-radius: 5px;
@@ -68,7 +68,7 @@ body.active-modal {
 
 .Box__Wrapper {
   /* width: 450px; */
-  height: 140px;
+  /* height: 140px; */
   display: flex;
   flex-direction: column;
   line-height: 60px;

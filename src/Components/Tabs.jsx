@@ -21,12 +21,12 @@ function Tabs() {
   const [toggleState, setToggleState] = useState(1);
   // 수입 파이형 차트상태
 
-  
   const [userData2, SetUserData2] = useState({
     labels: Data2.map((data) => data.title),
     datasets: [
       {
         label: ["income"],
+
         data: Data2.map((data) => data.income),
 
         backgroundColor: ["#B4B2FF", "red", "blue", "black", "gray", "orange"],
@@ -98,6 +98,7 @@ function Tabs() {
           </div>
           <div className="flex__1">
             <div className="chart">
+              {/* <div>월별 지출 파트</div> */}
               <BarChart chartData={userData} />
             </div>
           </div>

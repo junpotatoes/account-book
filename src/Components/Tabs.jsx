@@ -25,6 +25,7 @@ function Tabs() {
     datasets: [
       {
         label: ["income"],
+
         data: Data2.map((data) => data.income),
 
         backgroundColor: ["#B4B2FF", "red", "blue", "black", "gray", "orange"],
@@ -89,11 +90,16 @@ function Tabs() {
         </div>
         <div className={`${currenTab !== 1 ? "Dn" : "flex__column"}`}>
           <div className="flex__1">
-            <PieChart chartData2={userData2} />
-            <PieChart2 chartData3={userData3} />
+            <div className="chart">
+              <PieChart chartData2={userData2} />
+              <PieChart2 chartData3={userData3} />
+            </div>
           </div>
           <div className="flex__1">
-            <BarChart chartData={userData} />
+            <div className="chart">
+              {/* <div>월별 지출 파트</div> */}
+              <BarChart chartData={userData} />
+            </div>
           </div>
         </div>
         <div className={`${currenTab !== 2 ? "Dn" : "flex__column"}`}>

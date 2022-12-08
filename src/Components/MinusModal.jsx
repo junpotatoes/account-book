@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Datepicker from "./Datepicker";
-
 import ExpensesDropdown from "./ExpensesDropdown";
-
 import "../css/Modal.css";
 
 function PlusModal() {
@@ -60,6 +58,8 @@ function PlusModal() {
     let price = e.target.price.value;
     let content = e.target.content.value;
   };
+
+  const [test, setTest] = useState("");
 
   return (
     <>

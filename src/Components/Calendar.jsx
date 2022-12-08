@@ -17,7 +17,7 @@ import { isSameMonth, isSameDay, addDays, parse } from "date-fns";
 // isSameDay : 두개의 day인자를 받아 바교하는 함수
 // addDays : 현재의 day를 증가
 // parse : ???
-import "../css/Test.css";
+import "../css/Calendar.css";
 
 const RenderHeader = ({ currentMonth, prevMonth, nextMonth }) => {
   return (
@@ -38,9 +38,6 @@ const RenderHeader = ({ currentMonth, prevMonth, nextMonth }) => {
   );
 };
 
-// 날짜를 일요일 부터 ~ 토요일의 값을 담은 배열을 출력한다
-// 반복문을 통해서 빈배열에 date의 값을 태그형식으로 집어넣는다 ? 신기하다...
-//그것을 통해 다시한번감싸서 리턴 jsx...
 const RenderDays = () => {
   const days = [];
   const date = ["일", "월", "화", "수", "목", "금", "토"];

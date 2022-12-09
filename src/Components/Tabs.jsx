@@ -13,6 +13,7 @@ import { Data3 } from "./Data3";
 import BarChart from "./BarChart";
 import PieChart from "./PieChart";
 import PieChart2 from "./PieChart2";
+import useFetch from "../hooks/useFetch";
 
 function Tabs() {
   const tapPage = ["캘린더", "월별 통계", "설정"];
@@ -46,6 +47,25 @@ function Tabs() {
     ],
   });
 
+  //  Fetch Block
+
+  async function fetchData() {
+    const url = "http://localhost:4000/2022";
+    const response = await fetch(url);
+    const datapoints = await response.json();
+    console.log(datapoints);
+    return datapoints;
+  }
+
+  fetchData().then((datapoints) => {
+    const month = datapoints.map(function (index) {
+      return index.month;
+    });
+    console.log(month);
+  });
+
+  //
+
   // 막대바 차트상태
   const [userData, SetUserData] = useState({
     labels: Data.map((data) => data.month),
@@ -56,12 +76,12 @@ function Tabs() {
 
         backgroundColor: "#B4B2FF",
       },
-      {
-        label: ["Minus"],
-        data: Data.map((data) => data.Minus),
+      // {
+      //   label: ["Minus"],
+      //   data: Data.map((data) => data.Minus),
 
-        backgroundColor: "#FAB5B5",
-      },
+      //   backgroundColor: "#FAB5B5",
+      // },
     ],
   });
 
@@ -100,6 +120,7 @@ function Tabs() {
             <div className="chart">
               {/* <div>월별 지출 파트</div> */}
               <BarChart chartData={userData} />
+              <button onClick={fetchData()}>hello!</button>
             </div>
           </div>
         </div>

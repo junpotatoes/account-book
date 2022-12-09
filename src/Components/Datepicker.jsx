@@ -4,7 +4,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
-function Datepicker({ setDate }) {
+function Datepicker({ setDate, setMonth }) {
   const [value, setValue] = React.useState(null);
 
   return (
@@ -16,6 +16,7 @@ function Datepicker({ setDate }) {
           onChange={(newValue) => {
             setValue(newValue);
             setDate(`${newValue.$y}${newValue.$M + 1}${newValue.$D}`);
+            setMonth(newValue.$M + 1);
           }}
           renderInput={(params) => <TextField {...params} />}
         />

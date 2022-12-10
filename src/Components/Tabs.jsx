@@ -64,7 +64,7 @@ function Tabs() {
       },
     ],
   });
-
+  
   return (
     <div className="layout">
       <ul className="tap__title">

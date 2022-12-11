@@ -1,19 +1,21 @@
 /* 캘린더 모든 최상위부모 */
 .all{
-    height: 100%;
+    height: 1000px;
     background-color: antiquewhite;
     font-size: 2rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    
 }
 
 /* 날짜와 버튼 최상위부모*/
 .a{
-    background-color: red;
     display: flex;
     justify-content: space-around;
     align-items: center;
     color: white;
+    height: 45px;
 }
 
 /* 날짜와 버튼 부모*/
@@ -83,13 +85,13 @@
 }
 
 
-.test{
+.same__color{
     background-color: gray;
     color: white;
     
 
 }
 
-.case{
+.same_font{
     display: none;
 }

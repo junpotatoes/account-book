@@ -42,9 +42,12 @@ const RenderDays = () => {
 const RenderCells = ({ currentMonth, income, expenses }) => {
 
   const monthStartDay = startOfMonth(currentMonth);
+  
   const monthEndDay = endOfMonth(monthStartDay);
   const startWeekDay = startOfWeek(monthStartDay);
+  
   const endWeekDay = endOfWeek(monthEndDay);
+  
 
   
   
@@ -54,13 +57,12 @@ const RenderCells = ({ currentMonth, income, expenses }) => {
   let formattedDate = "";
   let allDate = "";
 
-
   
   
   while (day <= endWeekDay) {
-    console.log("첫달을 시작하는 1일:",monthStartDay)
-    console.log("첫달을 시작하는 1일이 속한 주에 첫날짜 :",startWeekDay)
-    
+    console.log("day:",day)  
+    console.log("endWeekDay:",endWeekDay)  
+    console.log("----------------")  
   
     for (let i = 0; i < 7; i++) {
       formattedDate = format(day, "d");
@@ -76,18 +78,18 @@ const RenderCells = ({ currentMonth, income, expenses }) => {
         (accumulate, currentValue) => accumulate + Number(currentValue.price),0);
 
     
-
+  
       days.push(
         <div
           key={day}
-          className={`c-2 ${!isSameMonth(day, monthStartDay) ? "test" : null}`}
+          className={`c-2 ${!isSameMonth(day, monthStartDay) ? "same__color" : null}`}
         >
           <span>{formattedDate}</span>
           {up.length === 0 ? null : <p
-          className={`${!isSameMonth(day, monthStartDay) ? "case" : null}`}
+          className={`${!isSameMonth(day, monthStartDay) ? "same_font" : null}`}
           >+{_up}</p>}
           {down.length === 0 ? null : <p
-          className={`${!isSameMonth(day, monthStartDay) ? "case" : null}`}
+          className={`${!isSameMonth(day, monthStartDay) ? "same_font" : null}`}
           >-{_down}</p>}
         </div>
       );
@@ -166,10 +168,3 @@ export const Calender = ({exit}) => {
     </div>
   );
 };
-
-/*
-1. 서버에 있는 날짜 date를 가져온다.
-2. 현재의 currentMonth의 년,월 데이터와 서버의 년.월 데이터가 같은지비교
-3. 같은 값의 데이터가 있다면 state값에 저장한다.
-4. 
-*/ 

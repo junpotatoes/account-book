@@ -27,9 +27,7 @@ function Tabs() {
     datasets: [
       {
         label: ["income"],
-
         data: Data2.map((data) => data.income),
-
         backgroundColor: ["#B4B2FF", "red", "blue", "black", "gray", "orange"],
       },
     ],
@@ -75,15 +73,17 @@ function Tabs() {
             className="tap__list__docs"
             onClick={() => SetCurrenTab(idx)}
           >
-            {el}
+            <span>{el}</span>
           </li>
         ))}
       </ul>
       <main className="tap_content">
         <div className={`${currenTab !== 0 ? "Dn" : "flex__row"}`}>
           <div className="flex__3">
-            <MinusModal exit={exit} setExit={setExit}/>
-            <PlusModal exit={exit} setExit={setExit}/>
+            <div className="tap_submiut">
+              <PlusModal exit={exit} setExit={setExit}/>
+              <MinusModal exit={exit} setExit={setExit}/>
+            </div>
             <Calender exit={exit}/>
           </div>
           <div className="flex__1">

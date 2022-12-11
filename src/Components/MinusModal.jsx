@@ -64,7 +64,7 @@ function PlusModal({exit, setExit}) {
 
   return (
     <>
-      <button onClick={toggleModal} className="btn-modal">
+      <button onClick={toggleModal} className="btn-modal btn__expenses">
         지출
       </button>
 

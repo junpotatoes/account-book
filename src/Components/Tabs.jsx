@@ -17,6 +17,7 @@ import PieChart2 from "./PieChart2";
 function Tabs() {
   const tapPage = ["캘린더", "월별 통계", "설정"];
   const [currenTab, SetCurrenTab] = useState(0);
+  const [exit, setExit] = useState(false);
 
   const [toggleState, setToggleState] = useState(1);
   // 수입 파이형 차트상태
@@ -81,9 +82,9 @@ function Tabs() {
       <main className="tap_content">
         <div className={`${currenTab !== 0 ? "Dn" : "flex__row"}`}>
           <div className="flex__3">
-            <MinusModal />
-            <PlusModal />
-            <Calender></Calender>
+            <MinusModal exit={exit} setExit={setExit}/>
+            <PlusModal exit={exit} setExit={setExit}/>
+            <Calender exit={exit}/>
           </div>
           <div className="flex__1">
             <CalendarSub />

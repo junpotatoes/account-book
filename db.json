@@ -2,42 +2,42 @@
   "2022": [
     {
       "value": "income",
-      "price": "3000000",
-      "content": "첫월급",
+      "price": "30000",
+      "content": "ㅇ",
       "date": "2022121",
       "title": "월급",
       "id": 1
     },
     {
-      "value": "expenses",
-      "price": "100000",
-      "content": "회식",
-      "date": "2022122",
-      "title": "식비",
+      "value": "income",
+      "price": "50000",
+      "content": "ㅇ",
+      "date": "2022121",
+      "title": "용돈",
       "id": 2
     },
     {
-      "value": "expenses",
-      "price": "100000",
-      "content": "핸드폰요금",
-      "date": "20221215",
-      "title": "기타",
+      "value": "income",
+      "price": "12323",
+      "content": "123",
+      "date": "2022121",
+      "title": "월급",
       "id": 3
     },
     {
       "value": "expenses",
-      "price": "50000",
-      "content": "미용실",
-      "date": "20221218",
-      "title": "패션/미용",
+      "price": "10000",
+      "content": "as",
+      "date": "2022121",
+      "title": "식비",
       "id": 4
     },
     {
       "value": "income",
-      "price": "10000",
-      "content": "길가다가주음",
-      "date": "20221228",
-      "title": "기타",
+      "price": "123123",
+      "content": "123",
+      "date": "20221130",
+      "title": "월급",
       "id": 5
     }
   ]

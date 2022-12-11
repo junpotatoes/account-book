@@ -5,7 +5,7 @@ import IncomeDropdown from "./IncomeDropdown";
 
 import "../css/Modal.css";
 
-function PlusModal() {
+function PlusModal({exit, setExit}) {
   const [price, setPrice] = useState("");
   const [content, setContent] = useState("");
   const [modal, setModal] = useState(false);
@@ -32,6 +32,7 @@ function PlusModal() {
         alert("post 완료!");
       }
     });
+    setExit(!exit);
   }
 
   const toggleModal = () => {

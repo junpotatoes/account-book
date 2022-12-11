@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import { format, addMonths, subMonths } from "date-fns";
 import { startOfMonth, endOfMonth, startOfWeek, endOfWeek } from "date-fns";
-import { addDays, parse } from "date-fns";
+import { addDays, parse, isSameMonth } from "date-fns";
 import "../css/Calendar.css";
 
 const RenderHeader = ({ currentMonth, prevMonth, nextMonth }) => {
@@ -41,36 +41,54 @@ const RenderDays = () => {
 
 const RenderCells = ({ currentMonth, income, expenses }) => {
 
-
-
   const monthStartDay = startOfMonth(currentMonth);
   const monthEndDay = endOfMonth(monthStartDay);
   const startWeekDay = startOfWeek(monthStartDay);
   const endWeekDay = endOfWeek(monthEndDay);
 
+  
+  
   const rows = [];
   let days = [];
   let day = startWeekDay;
   let formattedDate = "";
   let allDate = "";
-  while (day <= endWeekDay) {
 
+
+  
+  
+  while (day <= endWeekDay) {
+    console.log("첫달을 시작하는 1일:",monthStartDay)
+    console.log("첫달을 시작하는 1일이 속한 주에 첫날짜 :",startWeekDay)
+    
   
     for (let i = 0; i < 7; i++) {
       formattedDate = format(day, "d");
       allDate = format(day, "yMd")
+      
+
       let up = income.filter( e => e.date === allDate)
       let down = expenses.filter( e => e.date === allDate)
       
+      const _up = up.reduce(
+        (accumulate, currentValue) => accumulate + Number(currentValue.price),0);
+      const _down = expenses.reduce(
+        (accumulate, currentValue) => accumulate + Number(currentValue.price),0);
+
+    
 
       days.push(
         <div
           key={day}
-          className={`c-2 `}
+          className={`c-2 ${!isSameMonth(day, monthStartDay) ? "test" : null}`}
         >
           <span>{formattedDate}</span>
-          {up.length === 0 ? null : <p>+{up[0].price}</p>}
-          {down.length === 0 ? null : <p>-{down[0].price}</p>}
+          {up.length === 0 ? null : <p
+          className={`${!isSameMonth(day, monthStartDay) ? "case" : null}`}
+          >+{_up}</p>}
+          {down.length === 0 ? null : <p
+          className={`${!isSameMonth(day, monthStartDay) ? "case" : null}`}
+          >-{_down}</p>}
         </div>
       );
 
@@ -87,10 +105,12 @@ const RenderCells = ({ currentMonth, income, expenses }) => {
   return <div className="c">{rows}</div>;
 };
 
-export const Calender = () => {
+export const Calender = ({exit}) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [income, setIncome] = useState([]);
   const [expenses, setExpenses] = useState([]);
+  
+  
   
 
   
@@ -125,10 +145,7 @@ export const Calender = () => {
       
 
       
-  }, []);
-
-  // console.log(income);
-  // console.log(expenses);
+  }, [exit]);
 
   return (
     <div className="all">

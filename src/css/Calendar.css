@@ -84,5 +84,12 @@
 
 
 .test{
-    background-color: black;
+    background-color: gray;
+    color: white;
+    
+
+}
+
+.case{
+    display: none;
 }

@@ -1,15 +1,11 @@
 import { useState } from "react";
 import "../css/Tabs.css";
-// import Modal from "./Modal
 import CalendarSub from "./CalendarSub";
 import Account from "./Account";
 import Management from "./Management";
 import { Calender } from "./Calendar";
 import PlusModal from "./PlusModal";
 import MinusModal from "./MinusModal";
-import { Data } from "./Data";
-import { Data2 } from "./Data2";
-import { Data3 } from "./Data3";
 import BarChart from "./BarChart";
 import PieChart from "./PieChart";
 import PieChart2 from "./PieChart2";
@@ -19,16 +15,12 @@ function Tabs() {
   const tapPage = ["캘린더", "월별 통계", "설정"];
   const [currenTab, SetCurrenTab] = useState(0);
 
-  const [toggleState, setToggleState] = useState(1);
-  // 수입 파이형 차트상태
-  const [userData2, SetUserData2] = useState({
+  // 월별 수입 그래프
+  const [userData2, setUserData2] = useState({
     labels: ["월급", "부수입", "용돈", "상여금", "금융소득", "기타"],
     datasets: [
       {
         label: ["income"],
-
-        data: Data2.map((data) => data.income),
-
         backgroundColor: [
           "#B4B2FF",
           "#DEDDFF",
@@ -71,23 +63,72 @@ function Tabs() {
           ],
         };
 
-        SetUserData2(SetPutData2);
+        setUserData2(SetPutData2);
       });
   }, []);
 
-  // 지출 파이형 차트상태
-  const [userData3, SetUserData3] = useState({
-    labels: Data3.map((data) => data.title),
+  //월별 지출 그래프
+
+  const [userData3, setUserData3] = useState({
+    labels: [
+      "식비",
+      "교통비",
+      "문화생활",
+      "패션/미용",
+      "생활용품",
+      "주거/통신",
+      "기타",
+    ],
     datasets: [
       {
-        label: ["expense"],
-        data: Data3.map((data) => data.expense),
-        backgroundColor: ["#B4B2FF", "red", "blue", "black", "gray", "orange"],
+        label: ["expenses"],
+        backgroundColor: [
+          "#B4B2FF",
+          "#DEDDFF",
+          "#6D6AFA",
+          "#A2EDFD",
+          "#C270DF",
+          "#2E9BFF",
+        ],
       },
     ],
   });
-  console.log(Data3.map((data) => data.expense));
-  //////////////막대
+  useEffect(() => {
+    const arr = new Array(7).fill(0);
+    fetch("http://localhost:4000/2022/")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        data.forEach((el) => {
+          if (el.value === "expenses") {
+            arr[el.title] = Number(el.price);
+          }
+        });
+
+        const filteredData3 = data.filter((el) => el.value === "expenses");
+        const setPutData3 = {
+          labels: filteredData3.map((el) => el.title),
+          datasets: [
+            {
+              data: filteredData3.map((el) => el.price),
+              backgroundColor: [
+                "#B4B2FF",
+                "#DEDDFF",
+                "#6D6AFA",
+                "#A2EDFD",
+                "#C270DF",
+                "#2E9BFF",
+              ],
+            },
+          ],
+        };
+
+        setUserData3(setPutData3);
+      });
+  }, []);
+
+  //막대그래프
   const [userData, setUserData] = useState({
     labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     datasets: [

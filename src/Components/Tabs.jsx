@@ -13,7 +13,6 @@ import { Data3 } from "./Data3";
 import BarChart from "./BarChart";
 import PieChart from "./PieChart";
 import PieChart2 from "./PieChart2";
-
 import { useEffect } from "react";
 
 function Tabs() {
@@ -22,7 +21,6 @@ function Tabs() {
 
   const [toggleState, setToggleState] = useState(1);
   // 수입 파이형 차트상태
-
   const [userData2, SetUserData2] = useState({
     labels: ["월급", "부수입", "용돈", "상여금", "금융소득", "기타"],
     datasets: [
@@ -42,6 +40,41 @@ function Tabs() {
       },
     ],
   });
+  useEffect(() => {
+    const arr = new Array(6).fill(0);
+    fetch("http://localhost:4000/2022/")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        data.forEach((el) => {
+          if (el.value === "income") {
+            arr[el.title] = Number(el.price);
+          }
+        });
+
+        const filteredData = data.filter((el) => el.value === "income");
+        const SetPutData2 = {
+          labels: filteredData.map((el) => el.title),
+          datasets: [
+            {
+              data: filteredData.map((el) => el.price),
+              backgroundColor: [
+                "#B4B2FF",
+                "#DEDDFF",
+                "#6D6AFA",
+                "#A2EDFD",
+                "#C270DF",
+                "#2E9BFF",
+              ],
+            },
+          ],
+        };
+
+        SetUserData2(SetPutData2);
+      });
+  }, []);
+
   // 지출 파이형 차트상태
   const [userData3, SetUserData3] = useState({
     labels: Data3.map((data) => data.title),
@@ -49,24 +82,22 @@ function Tabs() {
       {
         label: ["expense"],
         data: Data3.map((data) => data.expense),
-
         backgroundColor: ["#B4B2FF", "red", "blue", "black", "gray", "orange"],
       },
     ],
   });
-
+  console.log(Data3.map((data) => data.expense));
+  //////////////막대
   const [userData, setUserData] = useState({
     labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     datasets: [
       {
         label: ["income"],
-
         backgroundColor: "#B4B2FF",
       },
 
       {
         label: ["expenses"],
-
         backgroundColor: "#FAB5B5",
       },
     ],
@@ -84,12 +115,14 @@ function Tabs() {
         data.forEach((el) => {
           if (el.value === "income") {
             arr[el.month - 1] += Number(el.price);
+
             return;
           }
 
           if (el.value === "expenses") {
             arr2[el.month - 1] += Number(el.price);
           }
+          console.log(arr);
         });
 
         setUserData({
@@ -98,13 +131,11 @@ function Tabs() {
             {
               label: ["Plus"],
               data: arr,
-
               backgroundColor: "#B4B2FF",
             },
             {
               label: ["Minus"],
               data: arr2,
-
               backgroundColor: "#FAB5B5",
             },
           ],

@@ -13,7 +13,7 @@ import { Data3 } from "./Data3";
 import BarChart from "./BarChart";
 import PieChart from "./PieChart";
 import PieChart2 from "./PieChart2";
-import useFetch from "../hooks/useFetch";
+
 import { useEffect } from "react";
 
 function Tabs() {

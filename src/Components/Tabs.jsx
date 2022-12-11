@@ -14,6 +14,7 @@ import BarChart from "./BarChart";
 import PieChart from "./PieChart";
 import PieChart2 from "./PieChart2";
 import useFetch from "../hooks/useFetch";
+import { useEffect } from "react";
 
 function Tabs() {
   const tapPage = ["캘린더", "월별 통계", "설정"];
@@ -23,14 +24,21 @@ function Tabs() {
   // 수입 파이형 차트상태
 
   const [userData2, SetUserData2] = useState({
-    labels: Data2.map((data) => data.title),
+    labels: ["월급", "부수입", "용돈", "상여금", "금융소득", "기타"],
     datasets: [
       {
         label: ["income"],
 
         data: Data2.map((data) => data.income),
 
-        backgroundColor: ["#B4B2FF", "red", "blue", "black", "gray", "orange"],
+        backgroundColor: [
+          "#B4B2FF",
+          "#DEDDFF",
+          "#6D6AFA",
+          "#A2EDFD",
+          "#C270DF",
+          "#2E9BFF",
+        ],
       },
     ],
   });
@@ -47,43 +55,62 @@ function Tabs() {
     ],
   });
 
-  //  Fetch Block
-
-  async function fetchData() {
-    const url = "http://localhost:4000/2022";
-    const response = await fetch(url);
-    const datapoints = await response.json();
-    console.log(datapoints);
-    return datapoints;
-  }
-
-  fetchData().then((datapoints) => {
-    const month = datapoints.map(function (index) {
-      return index.month;
-    });
-    console.log(month);
-  });
-
-  //
-
-  // 막대바 차트상태
-  const [userData, SetUserData] = useState({
-    labels: Data.map((data) => data.month),
+  const [userData, setUserData] = useState({
+    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     datasets: [
       {
-        label: ["Plus"],
-        data: Data.map((data) => data.Plus),
+        label: ["income"],
 
         backgroundColor: "#B4B2FF",
       },
-      // {
-      //   label: ["Minus"],
-      //   data: Data.map((data) => data.Minus),
 
-      //   backgroundColor: "#FAB5B5",
-      // },
+      {
+        label: ["expenses"],
+
+        backgroundColor: "#FAB5B5",
+      },
     ],
   });
+
+  useEffect(() => {
+    const arr = new Array(12).fill(0);
+    const arr2 = new Array(12).fill(0);
+
+    fetch("http://localhost:4000/2022/")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        data.forEach((el) => {
+          if (el.value === "income") {
+            arr[el.month - 1] += Number(el.price);
+            return;
+          }
+
+          if (el.value === "expenses") {
+            arr2[el.month - 1] += Number(el.price);
+          }
+        });
+
+        setUserData({
+          labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          datasets: [
+            {
+              label: ["Plus"],
+              data: arr,
+
+              backgroundColor: "#B4B2FF",
+            },
+            {
+              label: ["Minus"],
+              data: arr2,
+
+              backgroundColor: "#FAB5B5",
+            },
+          ],
+        });
+      });
+  }, []);
 
   return (
     <div className="layout">
@@ -118,9 +145,7 @@ function Tabs() {
           </div>
           <div className="flex__1">
             <div className="chart">
-              {/* <div>월별 지출 파트</div> */}
               <BarChart chartData={userData} />
-              <button onClick={fetchData()}>hello!</button>
             </div>
           </div>
         </div>

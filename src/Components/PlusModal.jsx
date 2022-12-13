@@ -12,7 +12,7 @@ function PlusModal() {
   const [date, setDate] = useState("");
   const [title, setTitle] = useState("");
   const [month, setMonth] = useState("");
-  console.log(month);
+
   function handleSubmit(e) {
     e.preventDefault();
 

@@ -20,7 +20,8 @@ ol,
 li,
 dl,
 dt,
-dd {
+dd,
+p {
   margin: 0;
   padding: 0;
 }
@@ -45,3 +46,4 @@ img {
   height: 100%;
   background-color: #000;
 }
+

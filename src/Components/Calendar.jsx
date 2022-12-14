@@ -7,17 +7,18 @@ import "../css/Calendar.css";
 
 const RenderHeader = ({ currentMonth, prevMonth, nextMonth }) => {
   return (
-    <div className="a">
-      <div className="a-1">
-        <div className="a-2">
-          <Icon icon="bi:arrow-left-circle-fill" onClick={prevMonth} />
+    <div className="header">
+      <div className="header__docs">
+        <div className="header__docs__ch">
+          <Icon icon="material-symbols:arrow-left-rounded" onClick={prevMonth} className="icon"/>
         </div>
-        <div className="a-2">
+        <div className="header__docs__ch">
           <span>{format(currentMonth, "yy")}년</span>
           <span>{format(currentMonth, "M")}월</span>
+          <Icon icon="lucide:calendar-days" className="icon2"/>
         </div>
-        <div className="a-2">
-          <Icon icon="bi:arrow-right-circle-fill" onClick={nextMonth} />
+        <div className="header__docs__ch">
+          <Icon icon="material-symbols:arrow-right-rounded" onClick={nextMonth} className="icon"/>
         </div>
       </div>
     </div>
@@ -30,23 +31,25 @@ const RenderDays = () => {
 
   for (let i = 0; i < 7; i++) {
     days.push(
-      <div key={i} className="b-1">
+      <div 
+      key={i} 
+      className={`sub__week__docs`}>
         {date[i]}
       </div>
     );
   }
 
-  return <div className="b">{days}</div>;
+  return <div className="sub__week">{days}</div>;
 };
 
-const RenderCells = ({ currentMonth, income, expenses }) => {
+const RenderCells = ({ currentMonth, income, expenses, simple, setSubdata}) => {
 
   const monthStartDay = startOfMonth(currentMonth);
-  
-  const monthEndDay = endOfMonth(monthStartDay);
   const startWeekDay = startOfWeek(monthStartDay);
-  
+  const monthEndDay = endOfMonth(monthStartDay);
   const endWeekDay = endOfWeek(monthEndDay);
+  const arr = []
+  
   
 
   
@@ -60,10 +63,7 @@ const RenderCells = ({ currentMonth, income, expenses }) => {
   
   
   while (day <= endWeekDay) {
-    console.log("day:",day)  
-    console.log("endWeekDay:",endWeekDay)  
-    console.log("----------------")  
-  
+
     for (let i = 0; i < 7; i++) {
       formattedDate = format(day, "d");
       allDate = format(day, "yMd")
@@ -72,43 +72,56 @@ const RenderCells = ({ currentMonth, income, expenses }) => {
       let up = income.filter( e => e.date === allDate)
       let down = expenses.filter( e => e.date === allDate)
       
+      
       const _up = up.reduce(
         (accumulate, currentValue) => accumulate + Number(currentValue.price),0);
-      const _down = expenses.reduce(
+      const _down = down.reduce(
         (accumulate, currentValue) => accumulate + Number(currentValue.price),0);
+      
 
+      
+      let detailed = {
+        // md: up[0]?.date,
+        md: format(day, `M월dd일`),
+        total: [_up,_down],
+        individual: simple.filter((e) => e.date === allDate),
+      }
     
   
       days.push(
         <div
           key={day}
-          className={`c-2 ${!isSameMonth(day, monthStartDay) ? "same__color" : null}`}
+          className="month__day"
+          onClick={ () => setSubdata(detailed)}
         >
-          <span>{formattedDate}</span>
-          {up.length === 0 ? null : <p
-          className={`${!isSameMonth(day, monthStartDay) ? "same_font" : null}`}
-          >+{_up}</p>}
-          {down.length === 0 ? null : <p
-          className={`${!isSameMonth(day, monthStartDay) ? "same_font" : null}`}
-          >-{_down}</p>}
+          <span>{!isSameMonth(day, monthStartDay) ? null : formattedDate}</span>
+          {up.length === 0 ? null : 
+          <p className={`${!isSameMonth(day, monthStartDay) ? "same_font" : "money_blue"}`}>+{_up}</p>}
+          {down.length === 0 ? null :
+           <p className={`${!isSameMonth(day, monthStartDay) ? "same_font" : "money_red"}`}>-{_down}</p>}
         </div>
       );
 
       day = addDays(day, 1);
+      
+      
     }
-
+    
+    
     rows.push(
-      <div key={day} className="c-1">
+      <div key={day} className="month__week">
         {days}
       </div>
     );
     days = [];
   }
-  return <div className="c">{rows}</div>;
+  
+  return <div className="month">{rows}</div>;
 };
 
-export const Calender = ({exit}) => {
+export const Calender = ({exit, setSubdata}) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [simple, setSimple] = useState([]); 
   const [income, setIncome] = useState([]);
   const [expenses, setExpenses] = useState([]);
   
@@ -143,12 +156,12 @@ export const Calender = ({exit}) => {
           }
           setIncome(up);
           setExpenses(down);
+          setSimple(data);
         });
       
 
       
   }, [exit]);
-
   return (
     <div className="all">
       {/* 월 변경과 년 월을 나타냄*/}
@@ -164,6 +177,8 @@ export const Calender = ({exit}) => {
         currentMonth={currentMonth}
         income={income}
         expenses={expenses}
+        simple={simple}
+        setSubdata={setSubdata}
       />
     </div>
   );

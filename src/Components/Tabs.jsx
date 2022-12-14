@@ -17,10 +17,12 @@ import PieChart2 from "./PieChart2";
 function Tabs() {
   const tapPage = ["캘린더", "월별 통계", "설정"];
   const [currenTab, SetCurrenTab] = useState(0);
-  const [exit, setExit] = useState(false);
-
+  const [rander, setRander] = useState(false);
   const [toggleState, setToggleState] = useState(1);
+  const [subdata, setSubdata] = useState([]);
   // 수입 파이형 차트상태
+
+  // console.log(subdata)
 
   const [userData2, SetUserData2] = useState({
     labels: Data2.map((data) => data.title),
@@ -81,19 +83,21 @@ function Tabs() {
         <div className={`${currenTab !== 0 ? "Dn" : "flex__row"}`}>
           <div className="flex__3">
             <div className="tap_submiut">
-              <PlusModal exit={exit} setExit={setExit}/>
-              <MinusModal exit={exit} setExit={setExit}/>
+              <PlusModal rander={rander} setRander={setRander}/>
+              <MinusModal rander={rander} setRander={setRander}/>
             </div>
-            <Calender exit={exit}/>
+            <Calender rander={rander} setSubdata={setSubdata}/>
           </div>
           <div className="flex__1">
-            <CalendarSub />
+            <CalendarSub subdata={subdata}/>
           </div>
         </div>
         <div className={`${currenTab !== 1 ? "Dn" : "flex__column"}`}>
           <div className="flex__1">
             <div className="chart">
               <PieChart chartData2={userData2} />
+              <PieChart chartData2={userData2} />
+              <PieChart2 chartData3={userData3} />
               <PieChart2 chartData3={userData3} />
             </div>
           </div>

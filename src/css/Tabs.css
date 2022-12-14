@@ -1,6 +1,7 @@
 /* 탭 컴포넌트 전체 화면 레이아웃 */
 .layout {
   width: 1300px;
+  /* width: 80vw; */
   height: 100vh;
   margin: 0 auto;
   text-align: center;
@@ -57,14 +58,13 @@
 
 .flex__3 {
   flex: 3 0;
-  outline: 1px solid black;
   position: relative;
 }
 
 
 .flex__1 {
   flex: 1 0;
-  outline: 1px solid black;
+  margin-top: 100px;
 }
 
 .chart {
@@ -76,4 +76,7 @@
 
 .tap_submiut{
   position: absolute;
+  left: 0;
+  top: 50px;
+  
 }

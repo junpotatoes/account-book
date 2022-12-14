@@ -3,7 +3,7 @@ import Datepicker from "./Datepicker";
 import ExpensesDropdown from "./ExpensesDropdown";
 import "../css/Modal.css";
 
-function PlusModal({exit, setExit}) {
+function PlusModal({rander, setRander}) {
   const [price, setPrice] = useState("");
   const [content, setContent] = useState("");
   const [modal, setModal] = useState(false);
@@ -30,7 +30,7 @@ function PlusModal({exit, setExit}) {
         alert("post 완료!");
       }
     });
-    setExit(!exit)
+    setRander(!rander)
   }
 
   const toggleModal = () => {

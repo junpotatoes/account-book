@@ -10,6 +10,7 @@ import BarChart from "./BarChart";
 import PieChart from "./PieChart";
 import PieChart2 from "./PieChart2";
 import { useEffect } from "react";
+import { height } from "@mui/system";
 
 function Tabs() {
   const tapPage = ["캘린더", "월별 통계", "설정"];
@@ -17,7 +18,13 @@ function Tabs() {
 
   // 월별 수입 그래프
   const [userData2, setUserData2] = useState({
-    labels: ["월급", "부수입", "용돈", "상여금", "금융소득", "기타"],
+    // labels: ["월급", "부수입", "용돈", "상여금", "금융소득", "기타"],
+    options: {
+      responsive: true,
+      legend: {
+        display: false, // label 숨기기
+      },
+    },
     datasets: [
       {
         label: ["income"],
@@ -211,10 +218,15 @@ function Tabs() {
         <div className={`${currenTab !== 1 ? "Dn" : "flex__column"}`}>
           <div className="flex__1">
             <div className="chart">
-              <PieChart chartData2={userData2} />
-              <PieChart2 chartData3={userData3} />
+              <PieChart
+                chartData2={userData2}
+                userData2={userData2}
+                style={{ width: "400px", height: "400px" }}
+              />
+              <PieChart2 chartData3={userData3} userData3={userData3} />
             </div>
           </div>
+
           <div className="flex__1">
             <div className="chart">
               <BarChart chartData={userData} />

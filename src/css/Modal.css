@@ -47,7 +47,7 @@ body.active-modal {
   border-radius: 3px;
   max-width: 600px;
   min-width: 500px;
-  height: 600px;
+  height: 300px;
 }
 
 .modal__Top__Box {
@@ -66,14 +66,14 @@ body.active-modal {
 
 .scroll__Box {
   width: 490px;
-  height: 400px;
+  height: 200px;
 
   overflow: auto;
 }
 
 .modal__Content__Box {
   width: 450px;
-  height: 360px;
+  height: 160px;
   border: 1px solid black;
   margin: 15px auto;
   border-radius: 5px;
@@ -132,7 +132,6 @@ body.active-modal {
 
 .option {
   font-size: 30px;
-  margin-top: 30px;
   width: 100px;
   height: 40px;
   display: flex;

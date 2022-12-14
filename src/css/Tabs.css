@@ -1,7 +1,7 @@
 /* 탭 컴포넌트 전체 화면 레이아웃 */
 .layout {
-  width: 1300px;
-  /* width: 80vw; */
+  /* width: 1300px; */
+  width: 100vw;
   height: 100vh;
   margin: 0 auto;
   text-align: center;
@@ -66,6 +66,10 @@
   flex: 1 0;
   margin-top: 100px;
 }
+.flex_4 {
+  flex: 1;
+  outline: 1px solid black;
+}
 
 .chart {
   width: 100%;
@@ -74,9 +78,30 @@
   justify-content: center;
 }
 
-.tap_submiut{
-  position: absolute;
-  left: 0;
-  top: 50px;
-  
+.chart__content {
+  width: 250px;
+  height: 100%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 20px;
+}
+.chart__content__2 {
+  width: 300px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 20px;
+}
+
+.chart__box {
+  display: flex;
+}
+.chart__box__2 {
+  display: flex;
+}
+
+.price__content,
+.title__content {
+  margin-top: 15px;
 }

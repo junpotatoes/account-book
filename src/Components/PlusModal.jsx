@@ -11,6 +11,7 @@ function PlusModal({rander, setRander}) {
   const [modal, setModal] = useState(false);
   const [date, setDate] = useState("");
   const [title, setTitle] = useState("");
+  const [month, setMonth] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -26,6 +27,7 @@ function PlusModal({rander, setRander}) {
         content: content,
         date: date,
         title: title,
+        month: month,
       }),
     }).then((res) => {
       if (res.ok) {
@@ -74,7 +76,7 @@ function PlusModal({rander, setRander}) {
           <div className="modal-content">
             <div className="modal__Top__Box">
               <div className="datePicker">
-                <Datepicker setDate={setDate} />
+                <Datepicker setDate={setDate} setMonth={setMonth} />
               </div>
             </div>
             <div className="scroll__Box">

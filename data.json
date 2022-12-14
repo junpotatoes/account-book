@@ -1,0 +1,58 @@
+{
+  "2022": [
+    {
+      "value": "income",
+      "price": "100000",
+      "content": "쿤디삥뜯기",
+      "date": "20221212",
+      "title": "기타",
+      "month": 12,
+      "id": 1
+    },
+    {
+      "value": "expenses",
+      "price": "123455",
+      "content": "1234",
+      "date": "20221215",
+      "title": "식비",
+      "month": 12,
+      "id": 2
+    },
+    {
+      "value": "income",
+      "price": "44444",
+      "content": "1234",
+      "date": "20221215",
+      "title": "용돈",
+      "month": 12,
+      "id": 3
+    },
+    {
+      "value": "income",
+      "price": "33333",
+      "content": "상여금",
+      "date": "20221215",
+      "title": "상여금",
+      "month": 12,
+      "id": 4
+    },
+    {
+      "value": "expenses",
+      "price": "30000",
+      "content": "교통비",
+      "date": "20221215",
+      "title": "교통비",
+      "month": 12,
+      "id": 5
+    },
+    {
+      "value": "income",
+      "price": "300000",
+      "content": "주식",
+      "date": "202311",
+      "title": "금융소득",
+      "month": 1,
+      "id": 6
+    }
+  ]
+}

@@ -86,8 +86,7 @@ const RenderCells = ({ currentMonth, selectedDate, onDateClick }) => {
   // 만약 23년기준 5월 30일 ~ 6월 03일로 비교한다고했을때
   // 뒤에 날짜만 비교하는게아니고 5.30 <= 6.03 이렇게 소수점으로
   // 비교한다고 생각해야한다 즉 월의 값도 비교한다고 생각!
-  console.log(startWeekDay);
-  console.log(monthStartDay);
+
   // console.log("마지막주 마지막날",endWeekDay)
   // console.log("속한달의 마지막날짜",monthEndDay)
   // console.log(monthEndDay < endWeekDay)

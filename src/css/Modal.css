@@ -4,8 +4,22 @@ body.active-modal {
 
 .btn-modal {
   padding: 10px 20px;
-
   font-size: 18px;
+  margin: 0 1rem; 
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  box-shadow: 1px 1px 1px 1px gray;
+  
+}
+
+.btn__income{
+  background-color: rgb(165, 159, 254);
+}
+
+.btn__expenses{
+  background-color: rgba(247, 164, 167);
 }
 
 .modal,

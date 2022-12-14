@@ -200,19 +200,21 @@ function Tabs() {
             className="tap__list__docs"
             onClick={() => SetCurrenTab(idx)}
           >
-            {el}
+            <span>{el}</span>
           </li>
         ))}
       </ul>
       <main className="tap_content">
         <div className={`${currenTab !== 0 ? "Dn" : "flex__row"}`}>
           <div className="flex__3">
-            <MinusModal />
-            <PlusModal />
-            <Calender></Calender>
+            <div className="tap_submiut">
+              <PlusModal rander={rander} setRander={setRander}/>
+              <MinusModal rander={rander} setRander={setRander}/>
+            </div>
+            <Calender rander={rander} setSubdata={setSubdata}/>
           </div>
           <div className="flex__1">
-            <CalendarSub />
+            <CalendarSub subdata={subdata}/>
           </div>
         </div>
         <div className={`${currenTab !== 1 ? "Dn" : "flex__column"}`}>

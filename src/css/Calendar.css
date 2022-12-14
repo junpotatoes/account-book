@@ -1,88 +1,197 @@
 /* 캘린더 모든 최상위부모 */
 .all{
-    height: 100%;
-    background-color: antiquewhite;
+    height: 900px;
     font-size: 2rem;
     display: flex;
     flex-direction: column;
-}
-
-/* 날짜와 버튼 최상위부모*/
-.a{
-    background-color: red;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color: white;
-}
-
-/* 날짜와 버튼 부모*/
-.a-1{
-    background-color: rgb(180, 114, 180);
-    display: flex;
-}
-
-/* 버튼 & 날짜 공통부모 */
-.a-2{
-    margin: 0 .5rem; 
-    background-color: purple;
-    display: flex;
-    align-items: center;
+    justify-content: center;
     
 }
 
-/* 싸고 있는부모밑에 모든자식 */
-.a-2 > *{
-    margin: 0 .5rem; 
-    background-color: darkblue;
-
-}
-
-/* 요일 최상위부모 */
-.b{
-    background-color: blue;
+/* 날짜와 버튼 최상위부모------------------------*/
+.header{
     display: flex;
     justify-content: space-around;
-    color: white;
-    padding: 1rem;
+    align-items: center;
+    height: 100px;
+}
+
+/* 날짜와 버튼 감싸는부모*/
+.header__docs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 버튼 & 날짜 개별부모 */
+.header__docs__ch{
+    display: flex;
+    align-items: center;
+}
+
+.header__docs__ch > span{
+    margin: 0 1rem; 
+    font-size: 4rem;
+}
+
+.icon{
+    color: gray;
+    font-size: 10rem;
+}
+.icon2{
+    /* color: gray; */
+    font-size: 4rem; 
+}
+
+
+/* 요일 최상위부모 */
+.sub__week{
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
 }
 
 /* 각요일들 */
-.b-1{
-    background: yellow;
+.sub__week__docs{
+    padding: 1.5rem 1rem;
+    width:100%;
     color: black;
+    border: 1px solid black;
+}
+
+.sub__week div:first-child{
+    color: red;
+}
+
+.sub__week div:last-child{ 
+    color: blue;
 }
 
 
+
+
+
 /* 한달을 다감싸는 최상위부모 */
-.c{
+.month{
     flex: 1;
-    background-color: green;
-    color: white;
     display: flex;
     flex-direction: column;
 }
 
 /*  1주일을 나타내는 부모 가로 */
-.c-1{
+.month__week{
     flex: 1;
-    background-color: brown;
-    outline: 1px solid black;
     display: flex;
     justify-content: space-around;
 }
 
 /*  각 날짜들*/
-.c-2{
+.month__day{
     padding: .5rem;
     text-align: left;
     flex: 1;
-    background-color: rgb(174, 118, 118);
     border: 1px solid black;
     color: black;
 }
 
+.same_font{
+    display: none;
+}
 
-.test{
-    background-color: black;
+.money_blue{
+    color: blue;
+}
+.money_red{
+    color: red;
+}
+
+
+/* 캘린더서브영역 */
+
+.suball{
+    box-sizing: border-box;
+    height: 800px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.suball__top{
+    flex: 3;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    
+}   
+
+.suball__bottom{
+    flex: 1;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+/* 공통헤더타이틀 */
+.suball__common__title{
+    padding: 1rem;
+    display: flex;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.suball__top__title__ch1{
+    flex: 1;
+}
+
+.suball__top__title__ch2{
+    flex: 2;
+}
+
+.suball__top__title__ch2 *:first-child{
+    color: blue;
+}
+.suball__top__title__ch2 *:last-child{
+    color: red;
+}
+
+.suball__top__content{
+    font-size: 2rem;
+    padding: 1rem;
+    text-align: left;
+}
+
+.suball__top__content > h4{
+    text-align: left;
+    padding-bottom: 2rem;
+}
+
+.sub__list{
+    padding: .5rem;
+}
+
+.sub__list > span{
+    margin: 0 10px;
+}
+
+.sub__list__color{
+    color: red;
+}
+.suball__bottom__content{
+    height: calc(100% - 60.49px);
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    
+}
+
+.suball__bottom__today{
+    
+    font-weight: bolder;
+    padding: .5rem;
+    flex:1;
+}
+.suball__bottom__moneth{
+    flex:2;
+     
 }

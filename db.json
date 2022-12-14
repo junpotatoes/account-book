@@ -1,0 +1,116 @@
+{
+  "2022": [
+    {
+      "value": "income",
+      "price": "30000",
+      "content": "ㅇ",
+      "date": "2022121",
+      "title": "월급",
+      "id": 1
+    },
+    {
+      "value": "income",
+      "price": "50000",
+      "content": "ㅇ",
+      "date": "2022121",
+      "title": "용돈",
+      "id": 2
+    },
+    {
+      "value": "income",
+      "price": "12323",
+      "content": "123",
+      "date": "2022121",
+      "title": "월급",
+      "id": 3
+    },
+    {
+      "value": "expenses",
+      "price": "10000",
+      "content": "as",
+      "date": "2022121",
+      "title": "식비",
+      "id": 4
+    },
+    {
+      "value": "income",
+      "price": "123123",
+      "content": "123",
+      "date": "20221130",
+      "title": "월급",
+      "id": 5
+    },
+    {
+      "value": "income",
+      "price": "123123",
+      "content": "123",
+      "date": "2022122",
+      "title": "월급",
+      "id": 6
+    },
+    {
+      "value": "income",
+      "price": "1000000",
+      "content": "123",
+      "date": "2022122",
+      "title": "월급",
+      "id": 7
+    },
+    {
+      "value": "income",
+      "price": "1000000",
+      "content": "123",
+      "date": "2022121",
+      "title": "월급",
+      "id": 8
+    },
+    {
+      "value": "expenses",
+      "price": "1000",
+      "content": "123",
+      "date": "2022122",
+      "title": "교통비",
+      "id": 9
+    },
+    {
+      "value": "expenses",
+      "price": "500000",
+      "content": "ss",
+      "date": "2022123",
+      "title": "교통비",
+      "id": 10
+    },
+    {
+      "value": "income",
+      "price": "123",
+      "content": "asd",
+      "date": "20221218",
+      "title": "월급",
+      "id": 11
+    },
+    {
+      "value": "income",
+      "price": "12321312",
+      "content": "ㄴㅇㄹ",
+      "date": "20221214",
+      "title": "월급",
+      "id": 12
+    },
+    {
+      "value": "income",
+      "price": "123123",
+      "content": "sdf",
+      "date": "202311",
+      "title": "부수입",
+      "id": 13
+    },
+    {
+      "value": "income",
+      "price": "2324234",
+      "content": "asdf",
+      "date": "202312",
+      "title": "부수입",
+      "id": 14
+    }
+  ]
+}

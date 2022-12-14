@@ -3,7 +3,7 @@ import Datepicker from "./Datepicker";
 import ExpensesDropdown from "./ExpensesDropdown";
 import "../css/Modal.css";
 
-function PlusModal() {
+function PlusModal({rander, setRander}) {
   const [price, setPrice] = useState("");
   const [content, setContent] = useState("");
   const [modal, setModal] = useState(false);
@@ -32,6 +32,7 @@ function PlusModal() {
         alert("post 완료!");
       }
     });
+    setRander(!rander)
   }
 
   const toggleModal = () => {
@@ -65,7 +66,7 @@ function PlusModal() {
 
   return (
     <>
-      <button onClick={toggleModal} className="btn-modal">
+      <button onClick={toggleModal} className="btn-modal btn__expenses">
         지출
       </button>
 

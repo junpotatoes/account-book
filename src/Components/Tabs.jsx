@@ -15,10 +15,12 @@ import { height } from "@mui/system";
 function Tabs() {
   const tapPage = ["캘린더", "월별 통계", "설정"];
   const [currenTab, SetCurrenTab] = useState(0);
+  const [rander,setRander] = useState(false);
+  const [subdata, setSubdata] = useState([])
 
   // 월별 수입 그래프
   const [userData2, setUserData2] = useState({
-    // labels: ["월급", "부수입", "용돈", "상여금", "금융소득", "기타"],
+    // labels: ["월급", "부수입", "용돈",setRander "상여금", "금융소득", "기타"],
     options: {
       responsive: true,
       legend: {
@@ -170,7 +172,7 @@ function Tabs() {
           if (el.value === "expenses") {
             arr2[el.month - 1] += Number(el.price);
           }
-          console.log(arr);
+          
         });
 
         setUserData({
@@ -214,7 +216,7 @@ function Tabs() {
             <Calender rander={rander} setSubdata={setSubdata}/>
           </div>
           <div className="flex__1">
-            <CalendarSub subdata={subdata}/>
+            <CalendarSub subdata={subdata} rander={rander}/>
           </div>
         </div>
         <div className={`${currenTab !== 1 ? "Dn" : "flex__column"}`}>

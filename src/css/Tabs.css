@@ -105,3 +105,10 @@
 .title__content {
   margin-top: 15px;
 }
+
+.tap_submiut{
+  position: absolute;
+  left: 0;
+  top: 50px;
+
+}

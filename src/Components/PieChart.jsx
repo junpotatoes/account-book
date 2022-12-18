@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 function PieChart({ chartData2, userData2 }) {
-  console.log(userData2);
+  
 
   return (
     <div className="chart__box">

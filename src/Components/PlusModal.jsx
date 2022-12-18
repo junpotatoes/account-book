@@ -13,6 +13,7 @@ function PlusModal({rander, setRander}) {
   const [title, setTitle] = useState("");
   const [month, setMonth] = useState("");
 
+
   function handleSubmit(e) {
     e.preventDefault();
 

@@ -48,7 +48,7 @@ const RenderCells = ({ currentMonth, income, expenses, simple, setSubdata}) => {
   const startWeekDay = startOfWeek(monthStartDay);
   const monthEndDay = endOfMonth(monthStartDay);
   const endWeekDay = endOfWeek(monthEndDay);
-  const arr = []
+  
   
   
 
@@ -81,10 +81,9 @@ const RenderCells = ({ currentMonth, income, expenses, simple, setSubdata}) => {
 
       
       let detailed = {
-        // md: up[0]?.date,
         md: format(day, `M월dd일`),
         total: [_up,_down],
-        individual: simple.filter((e) => e.date === allDate),
+        individual: simple.filter((e) => e.date === allDate ),
       }
     
   
@@ -96,9 +95,9 @@ const RenderCells = ({ currentMonth, income, expenses, simple, setSubdata}) => {
         >
           <span>{!isSameMonth(day, monthStartDay) ? null : formattedDate}</span>
           {up.length === 0 ? null : 
-          <p className={`${!isSameMonth(day, monthStartDay) ? "same_font" : "money_blue"}`}>+{_up}</p>}
+          <p className={`${!isSameMonth(day, monthStartDay) ? "same_font" : "money_blue"}`}>+{String(_up).replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,')}</p>}
           {down.length === 0 ? null :
-           <p className={`${!isSameMonth(day, monthStartDay) ? "same_font" : "money_red"}`}>-{_down}</p>}
+           <p className={`${!isSameMonth(day, monthStartDay) ? "same_font" : "money_red"}`}>-{String(_down).replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,')}</p>}
         </div>
       );
 
@@ -119,11 +118,12 @@ const RenderCells = ({ currentMonth, income, expenses, simple, setSubdata}) => {
   return <div className="month">{rows}</div>;
 };
 
-export const Calender = ({exit, setSubdata}) => {
+export const Calender = ({rander, setSubdata}) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [simple, setSimple] = useState([]); 
   const [income, setIncome] = useState([]);
   const [expenses, setExpenses] = useState([]);
+  
   
   
   
@@ -161,7 +161,7 @@ export const Calender = ({exit, setSubdata}) => {
       
 
       
-  }, [exit]);
+  }, [rander]);
   return (
     <div className="all">
       {/* 월 변경과 년 월을 나타냄*/}
